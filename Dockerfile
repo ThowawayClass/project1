@@ -24,10 +24,10 @@ COPY gheim/files/docker/systemctl.py /usr/bin/systemctl
 RUN systemctl enable httpd
 
 #this pulls the website
-RUN wget google.com > index.html
+RUN curl -L google.com > index.html
 
 # wget automatically add a .1 onto index.html so this renames it
-RUN mv index.html.1 index.html
+# RUN mv index.html.1 index.html
 
 # And moves the website into the correct place
 RUN mv index.html /var/www/html/index.html
